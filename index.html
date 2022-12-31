@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="theme.css" />
+    <style type="text/css">
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        max-width: 40rem;
+        min-height: 100vh;
+        margin: 0 auto;
+        background-color: var(--page-background-color);
+        color: var(--text-color);
+        font-family: var(--main-font-family);
+      }
+      a,
+      a:visited,
+      a:active {
+        color: var(--text-color-links);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--text-color-links);
+        text-decoration: underline;
+      }
+      header,
+      main,
+      footer {
+        width: 100%;
+        background-color: var(--background-color);
+        flex-grow: 1;
+      }
+      main {
+        flex-grow: 2;
+      }
+      footer {
+        margin-top: 1rem;
+      }
+      .toot {
+        box-sizing: border-box;
+        display: block;
+        margin: 0;
+        padding: 1rem;
+        width: 100%;
+        border-bottom: 1px solid var(--page-background-color);
+      }
+
+      .toot header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .toot header .user {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+      }
+      .toot header .user .avatar {
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        border-radius: var(--border-radius);
+      }
+      .toot header .user .avatar img {
+        width: 100%;
+        height: 100%;
+      }
+      .toot header .user .name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .toot .published {
+        color: var(--text-color-secondary);
+        align-self: flex-start;
+      }
+
+      .toot .attachment {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div id="page_header">
+        <div class="banner">
+          <img width="100%" src="header.jpg" alt="background banner" />
+        </div>
+        <section class="content">
+          <div class="user">
+            <img class="avatar" src="avatar.png" alt="user avatar" />
+            <div class="names">
+              <div class="name">DelphiN</div>
+              <ul>
+                <li>
+                  <a href="https://bitcoinhackers.org/@mojoaxel"
+                    >@mojoaxel@bitcoinhackers.org</a
+                  >
+                </li>
+
+                <li>
+                  <a href="https://chaos.social/users/mojoaxel"
+                    >@mojoaxel@chaos.social</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="summary">
+            <p>javascript, bitcoin, politics</p>
+          </div>
+
+          <div class="status">
+            This is a static archive. This account is no longer active.
+
+            <br />
+            The user moved to
+            <a href="https://chaos.social/users/mojoaxel"
+              >@mojoaxel@chaos.social</a
+            >
+          </div>
+
+          <style type="text/css">
+            .status {
+              position: relative;
+              color: var(--text-color);
+              border: 1px dotted var(--text-color-links);
+              border-radius: var(--borer-radius);
+              padding: 0.5rem;
+            }
+            .status::after {
+              content: "！";
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 0;
+              font-size: 2rem;
+              color: var(--text-color-links);
+            }
+          </style>
+
+          <dl class="attachments">
+            <dt>twitter</dt>
+            <dd>@wunschik</dd>
+
+            <dt>github</dt>
+            <dd>mojoaxel</dd>
+          </dl>
+
+          <style type="text/css">
+            dl.attachments {
+              display: block;
+              margin: 0;
+              margin: 1rem 0 0 0;
+              padding: 0;
+              font-size: smaller;
+              background-color: var(--page-background-color);
+              border-radius: var(--border-radius);
+            }
+            .attachments dt,
+            .attachments dd {
+              margin: 0;
+              padding: 0 1rem;
+            }
+            .attachments dt {
+              text-transform: uppercase;
+              color: var(--text-color-secondary);
+              padding-top: 1rem;
+            }
+            .attachments dd {
+              border-bottom: 1px solid var(--background-color);
+              padding-bottom: 1rem;
+            }
+          </style>
+        </section>
+      </div>
+
+      <style type="text/css">
+        #page_header {
+          border-bottom: 1px solid var(--page-background-color);
+        }
+        #page_header .content {
+          padding: var(--padding);
+        }
+        #page_header .content .user {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+        }
+        #page_header .content .user .avatar {
+          width: 7rem;
+          height: 7rem;
+          border-radius: var(--borer-radius);
+          border: 2px solid var(--text-color);
+        }
+        #page_header .content .user .names {
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+        }
+        #page_header .content .user .names .name {
+          font-size: var(--padding);
+          font-weight: bold;
+          margin: 0.5rem 0;
+        }
+        #page_header .content .user .names ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+      </style>
+      <nav>
+        <ul class="navigation">
+          <li>
+            <a href="./index.html">
+              <em>20</em>
+              Posts
+            </a>
+          </li>
+          <li><em>37</em> Replies</li>
+          <li>
+            <a href="./likes.html">
+              <em>234</em>
+              Likes
+            </a>
+          </li>
+          <li>
+            <a href="./bookmarks.html">
+              <em>0</em>
+              Bookmarks
+            </a>
+          </li>
+          <li>
+            <a href="./media.html">
+              <em>3</em>
+              Media
+            </a>
+          </li>
+          <li>
+            <a href="./tags.html">
+              <em>17</em>
+              Tags
+            </a>
+          </li>
+        </ul>
+
+        <style type="text/css">
+          ul.navigation {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color-secondary);
+            background-color: var(--page-background-color);
+          }
+          ul.navigation li {
+            display: block;
+            padding: 1rem;
+          }
+          ul.navigation li.active {
+            background-color: var(--background-color);
+          }
+          ul.navigation li em {
+            font-weight: bold;
+            font-style: normal;
+          }
+        </style>
+      </nav>
+    </header>
+    <main>
+      <ul class="toots">
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">5/9/2022, 7:23:32 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              Is the tech bubble bursting right now?<a
+                href="https://youtu.be/g-_hVXzkn0o"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">youtu.be/g-_hVXzkn0o</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">5/7/2022, 5:40:40 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              <a
+                href="https://blog.bitcoinladies.org/radical-system-change-bitcoin-degrowth-issue-1-87ed96cf4dcb"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="ellipsis">blog.bitcoinladies.org/radical</span
+                ><span class="invisible"
+                  >-system-change-bitcoin-degrowth-issue-1-87ed96cf4dcb</span
+                ></a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">5/1/2022, 12:53:01 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              Vor kurzem hat ein besoffener Russe bei einem guten Freund von mir
+              eingebrochen, auf den Teppich gepinkelt und angefangen Alles zu
+              verwüsten. Mein Freund ist davon aufgewacht und konnte den
+              Einbrecher stellen. Weil ich direkt in der Nachbarschaft wohne hat
+              er mich gleich angerufen und gefragt ob ich schnell kommen könnte
+              um Ihm zu helfen.<br />Ich hab kurz nachgedacht und Ihm dann
+              gesagt beide Seiten müssten jetzt Kompromisse machen und er soll
+              Ihm einfach das MacBook überlassen und bitte Ruhe geben!
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">4/30/2022, 8:52:50 AM</div>
+          </header>
+          <div class="content">
+            <p>I want this for the @StadtFuerth@twitter.com !</p>
+            <p>
+              RT @VictorVenema: The &quot;Leipzig fuers Klima&quot; team have
+              completed painting a giant representation of the Warming Stripes
+              on the Sachsenbrücke in Leipzig.
+            </p>
+            <p>
+              <a
+                href="https://bitcoinhackers.org/tags/ShowYourStripes"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>ShowYourStripes</span></a
+              >
+              <a
+                href="https://bitcoinhackers.org/tags/Leipzig"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Leipzig</span></a
+              >
+              <a
+                href="https://bitcoinhackers.org/tags/FFF"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>FFF</span></a
+              >
+              <a
+                href="https://bitcoinhackers.org/tags/Climate"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Climate</span></a
+              >
+              <a
+                href="https://bitcoinhackers.org/tags/Klima"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Klima</span></a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">10/9/2021, 11:24:24 AM</div>
+          </header>
+          <div class="content">
+            <p>
+              <a
+                href="https://twitter.com/muneeb/status/1446634596448210948?t=4v78AoioxCYMmA-Abj3CEQ&amp;s=09"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="ellipsis">twitter.com/muneeb/status/1446</span
+                ><span class="invisible"
+                  >634596448210948?t=4v78AoioxCYMmA-Abj3CEQ&amp;s=09</span
+                ></a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">11/7/2020, 1:21:24 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              &quot;The great collapse of the 2020s was not the end of the
+              world, it was the end of an era and the dawn of a new
+              one!&quot;<br /><a
+                href="https://youtu.be/kME4TKsEBSw"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">youtu.be/kME4TKsEBSw</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">3/23/2019, 6:43:56 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              <span class="h-card"
+                ><a href="https://chaos.social/@usako" class="u-url mention"
+                  >@<span>usako</span></a
+                ></span
+              >
+              &lt;--- hat mich zu inspiriert ein Transparent für ne
+              <a
+                href="https://bitcoinhackers.org/tags/Artikel13"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Artikel13</span></a
+              >
+              heute zu machen. Thx!
+            </p>
+
+            <a
+              href="./bitcoinhackers/media_attachments/files/000/438/867/original/d76f2dfa7cf23b0d.jpg"
+            >
+              <img
+                class="attachment"
+                style="max-width: 1478px; max-height: 1109px"
+                src="./bitcoinhackers/media_attachments/files/000/438/867/original/d76f2dfa7cf23b0d.jpg"
+                alt=""
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">12/29/2018, 7:51:00 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              Öffentliches Geld? Öffentlicher Code! Ich unterstütze den Aufruf
+              zu mehr öffentlichem Code unter einer Freie-Software-Lizenz:
+              <a
+                href="https://publiccode.eu/de/"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">publiccode.eu/de/</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/20/2018, 1:19:08 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              Friedly
+              <a
+                href="https://bitcoinhackers.org/tags/Bitcoin"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Bitcoin</span></a
+              >
+              Reminder: Only a few days left to make a rehabilitation claim at
+              <a
+                href="https://bitcoinhackers.org/tags/mtgox"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>mtgox</span></a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/16/2018, 5:44:54 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              <a
+                href="https://youtu.be/OHXrxDIpuVM"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">youtu.be/OHXrxDIpuVM</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/12/2018, 10:10:10 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              Is there something like
+              <a
+                href="https://bitcoinhackers.org/tags/raspibold"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>raspibold</span></a
+              >
+              or
+              <a
+                href="https://bitcoinhackers.org/tags/raspiblitz"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>raspiblitz</span></a
+              >
+              but with c-lightning instead of
+              <a
+                href="https://bitcoinhackers.org/tags/lnd"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>lnd</span></a
+              >? <br />I found this nice series by
+              <span class="h-card"
+                ><a
+                  href="https://bitcoinhackers.org/@meeDamian"
+                  class="u-url mention"
+                  >@<span>meeDamian</span></a
+                ></span
+              >
+              but would prefer an out-of-the-box solution.
+              <a
+                href="https://medium.com/@meeDamian/c-lightning-node-on-rbp3-b950660fb835"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="ellipsis">medium.com/@meeDamian/c-lightn</span
+                ><span class="invisible">ing-node-on-rbp3-b950660fb835</span></a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/10/2018, 5:46:37 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              The
+              <a
+                href="https://bitcoinhackers.org/tags/TSA"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>TSA</span></a
+              >
+              is looking for
+              <a
+                href="https://bitcoinhackers.org/tags/Bitcoin"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Bitcoin</span></a
+              >
+            </p>
+            <p>
+              <a
+                href="https://youtu.be/zsLwPCRv49Y"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">youtu.be/zsLwPCRv49Y</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/7/2018, 5:14:57 PM</div>
+          </header>
+          <div class="content">
+            <p>Nazis haben kleine Schniedel!</p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/5/2018, 10:38:14 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              <a
+                href="https://bitcoinhackers.org/tags/yearofmaking2018"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>yearofmaking2018</span></a
+              ><br /><a
+                href="https://en.wikipedia.org/wiki/Schult%C3%BCte?wprov=sfla1"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="ellipsis">en.wikipedia.org/wiki/Schult%C</span
+                ><span class="invisible">3%BCte?wprov=sfla1</span></a
+              >
+            </p>
+
+            <a
+              href="./bitcoinhackers/media_attachments/files/000/050/192/original/e19bd7bd13a3fb2c.jpg"
+            >
+              <img
+                class="attachment"
+                style="max-width: 1109px; max-height: 1478px"
+                src="./bitcoinhackers/media_attachments/files/000/050/192/original/e19bd7bd13a3fb2c.jpg"
+                alt=""
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">9/4/2018, 10:46:07 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              &quot;<a
+                href="https://bitcoinhackers.org/tags/Bitcoin"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Bitcoin</span></a
+              >
+              maximalists are wrong!&quot;, aren&#39;t they?<br /><a
+                href="https://youtu.be/C_6wpB8aB1g"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">youtu.be/C_6wpB8aB1g</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">8/27/2018, 8:38:27 AM</div>
+          </header>
+          <div class="content">
+            <p>
+              <span class="h-card"
+                ><a
+                  href="https://bitcoinhackers.org/@panther"
+                  class="u-url mention"
+                  >@<span>panther</span></a
+                ></span
+              >
+              Not paying taxes is like beeing the unsocial kid that tortures
+              little animals in the basement ;-)
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">8/26/2018, 7:59:56 AM</div>
+          </header>
+          <div class="content">
+            <p>
+              Go watch
+              <a
+                href="https://bitcoinhackers.org/tags/BlacKkKlansman"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>BlacKkKlansman</span></a
+              >! It&#39;s an amazing and fun movie with an incredible strong
+              ending.<br />Movie of the year for me!<br /><a
+                href="https://youtu.be/pFc6I0rgmgY"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">https://</span
+                ><span class="">youtu.be/pFc6I0rgmgY</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">8/25/2018, 12:59:30 AM</div>
+          </header>
+          <div class="content">
+            <p>
+              Looks like
+              <a
+                href="https://bitcoinhackers.org/tags/mobilepayment"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>mobilepayment</span></a
+              >
+              is a thing now!
+            </p>
+            <p>
+              Yesterday I used the NFC-enabled app from my fiat-bank to pay for
+              fries and on the same day used a
+              <a
+                href="https://bitcoinhackers.org/tags/bitcoin"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>bitcoin</span></a
+              >
+              lightning app to pay a few cent to remove an online paywall
+            </p>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">8/23/2018, 3:47:43 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              <a
+                href="https://bitcoinhackers.org/tags/Lego"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>Lego</span></a
+              >
+              😍 <br />Still one of the best toys in the world!
+            </p>
+
+            <a
+              href="./bitcoinhackers/media_attachments/files/000/028/018/original/a64c644287529e01.jpeg"
+            >
+              <img
+                class="attachment"
+                style="max-width: 1280px; max-height: 960px"
+                src="./bitcoinhackers/media_attachments/files/000/028/018/original/a64c644287529e01.jpeg"
+                alt=""
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </section>
+
+        <section class="toot">
+          <header>
+            <div class="user">
+              <div class="avatar">
+                <img src="avatar.png" alt="users avatar" />
+              </div>
+              <div class="name">
+                <span class="name">DelphiN</span>
+                <a class="id" href="https://bitcoinhackers.org/users/mojoaxel"
+                  >@mojoaxel@bitcoinhackers.org</a
+                >
+              </div>
+            </div>
+            <div class="published">8/21/2018, 10:31:20 PM</div>
+          </header>
+          <div class="content">
+            <p>
+              My
+              <a
+                href="https://bitcoinhackers.org/tags/lightningnetwork"
+                class="mention hashtag"
+                rel="tag"
+                >#<span>lightningnetwork</span></a
+              >
+              node now has a little welcome-page: <br />⚡
+              <a
+                href="http://lightning-pay.eu"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                ><span class="invisible">http://</span
+                ><span class="">lightning-pay.eu</span
+                ><span class="invisible"></span
+              ></a>
+            </p>
+          </div>
+        </section>
+      </ul>
+
+      <style type="text/css">
+        ul.toots {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+      </style>
+    </main>
+    <footer>
+      <div id="page_footer">
+        <ul class="content">
+          <li>
+            <a href="https://github.com/mojoaxel/tootback#readme">GitHub</a>
+          </li>
+
+          <li>
+            <a href="https://mojoaxel.github.io/wunschik.it/imprint.html"
+              >Imprint</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <style type="text/css">
+        #page_footer {
+          padding: var(--padding);
+        }
+        #page_footer ul.content {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      </style>
+    </footer>
+  </body>
+</html>
